@@ -1,0 +1,16 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:  
+        l = len(needle)
+
+        if needle not in haystack:
+            return -1
+          
+        else:
+            for i in range(len(haystack)):
+               
+                if (needle[0] == haystack[i] and haystack[i:i+l] == needle ) :
+                     # print(haystack[i:i+l])
+                    return i
+             
+            
+            
