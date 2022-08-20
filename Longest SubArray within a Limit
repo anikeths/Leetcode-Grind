@@ -1,0 +1,22 @@
+ def longestSubarray(nums: List[int], limit: int):    
+        lists = [[]]
+        for i in range(len(nums) + 1):
+            for j in range(i):
+                 lists.append(nums[j: i])             
+        lists.remove(lists[0])           
+        lili = []
+        for j in range(1,len(lists)):
+             diff = abs(max(lists[j]) - min(lists[j]))
+             lili.append(diff)
+ 
+        print(lists)
+        print(lili)
+        print(len(lists))
+        print(len(lili))
+        maxli = []
+        for i in lili:
+            if i<= limit:
+                maxli.append(i)
+        print(maxli)
+        idx = (lili.index(max(maxli)))
+        return len(lists[idx+1])
