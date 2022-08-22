@@ -1,0 +1,23 @@
+class Solution:
+    def triangularSum(self, nums: List[int]) -> int:
+        
+        n = len(nums)
+        
+        if n==1:
+            return nums[0]
+        
+        else:  
+             newNums = [0 for _ in range(n-1)]
+       
+       
+        for i in range(n-1):
+                newNums[i] =  (nums[i]  + nums[i+1]) %10
+                print(newNums[i])
+     
+    
+        for k in range(2,n-1):
+            for i in range(n-k):
+        # for i in range(n-2):
+              newNums[i] = (newNums[i] + newNums[i+1] )% 10
+            return (newNums[0])
+  
