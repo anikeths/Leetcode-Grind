@@ -1,0 +1,29 @@
+from typing import List
+def plusOne( digits: List[int]):
+        x=0
+        li = []
+        for i in (digits): 
+            x= str(x)+str(i)
+            # x= x.replace(x[0],'')
+        print(x)
+
+        if (x[-1] == 9):
+
+          #  y = str(int(x[-2]) + 1)
+          #  x= x.replace(x[-2],y) 
+          #  x= x.replace(x[-1],'0') 
+           print(x)
+
+        if (x[-1]!= 9):
+        
+          y = str(int(x[-1]) + 1)
+          x= x.replace(x[-1],y) 
+          print(x)
+          
+          for i in x:
+              li.append(i)
+          
+          li.remove(li[0])
+         
+  
+          return li
