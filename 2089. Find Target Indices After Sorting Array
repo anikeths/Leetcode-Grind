@@ -1,0 +1,15 @@
+class Solution:
+    def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        li=[]
+        nums = sorted(nums)
+        print(nums)
+        
+        if target not in nums:
+            return li
+        
+        else:
+             for i in range(len(nums)):
+                if(target == nums[i]):
+                    li.append(i)
+                    
+        return li
