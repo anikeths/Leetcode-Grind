@@ -1,0 +1,75 @@
+class Solution:
+    def platesBetweenCandles(self, s: str, queries: List[List[int]]) -> List[int]:
+       
+        substring = []
+      
+        for q in queries:
+            substring.append(s[q[0] : q[1]+1])
+            
+        print(substring)
+      
+        candle2 = 0
+        for sub in substring:
+            for i in sub:
+                if i == '|': candle1 = sub.index(i)
+            break
+           
+            for j in reversed(range(len(sub))):
+                if sub[j] == '|': candle2 = j
+            break
+              
+        print(candle1,candle2)
+       
+
+#         a= queries[0][0]
+#         b= queries[0][1]
+        
+        
+#         m = queries[1][0]
+#         n= queries[1][1]
+        
+# #         second = s[m:n+1]
+            
+# #         first = s[a:b+1]   
+        
+#         print(first)
+#         print(second)
+  
+#         for i in first:
+#             if i == '|': candle1First = first.index(i)
+#             # if i == '*': candle2 = first.index(i)
+#             break
+          
+#         for j in reversed(range(len(first))): 
+#             if first[j] == '|':
+#                 candle1Second = j
+#             break
+        
+#         for i in second:
+#             if i == '|': candle2First = second.index(i)
+#             break
+            
+#         for j in reversed(range(len(second))): 
+#             if second[j] == '|':
+#                 candle2Second = j
+#             break
+            
+#         print(candle1First) 
+#         print(candle1Second)
+#         print(candle2First)           
+#         print(candle2Second)
+#         countSecond = 0
+#         countFirst =0
+         
+#         for i in range(candle1First+1,candle1Second):
+#             # print(first[i])
+#             if first[i] == '*':
+#                 countFirst+=1
+#         print(countFirst)
+        
+#         for j in range(candle2First+1, candle2Second):
+#               if first[i] == '*':
+#                 countSecond +=1
+#         print(countSecond)
+        
+#         return [countFirst,countSecond]
