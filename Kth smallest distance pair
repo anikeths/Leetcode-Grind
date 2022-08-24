@@ -1,0 +1,16 @@
+ def smallestDistancePair(self, nums: List[int], k: int) -> int:
+        
+        res = [(a, b) for idx, a in enumerate(nums) for b in nums[idx + 1:]]
+        distli = []
+        dist =0
+        for r in res:
+            dist =  abs(max(r)-min(r))         
+            distli.append(dist)
+         
+        
+        distli = sorted(distli)  
+       
+        print(res)
+        
+        return distli[k-1]
+        
