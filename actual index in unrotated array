@@ -1,0 +1,34 @@
+#to find the actual index of the target element in the unrotated sorted array.
+
+#LC -33
+
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+    
+        for i in range(1,len(nums)):
+            # print(nums[i-1], nums[i])
+            if(nums[i-1] > nums[i]):
+                pivot = i-1 
+                print(pivot)
+
+        #find the pivot index 
+        start = nums[pivot+1]
+        end = nums[pivot]
+        
+        print(start)
+        
+        numsunrot = []
+        for i in range(start,end):
+            numsunrot.append(i)
+            
+        if target in numsunrot:
+            return numsunrot.index(target)
+
+        #  if target in nums:
+        #     return (nums.index(target))
+        
+        else:
+            return -1
+    
+   
