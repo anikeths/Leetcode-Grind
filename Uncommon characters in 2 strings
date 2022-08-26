@@ -1,0 +1,17 @@
+# # Given: Two strings A and B
+# Task: Find the characters that are not common in the two strings
+
+A= "Aniketh"
+B= "Ramesh"
+
+
+def findUncommon(A:str, B:str):
+  sA = set(A)
+  sB = set(B)
+
+  # print(sA)
+  # print(sB)
+  diffA = sA.difference(sB)
+  diffB = sB.difference(sA)
+
+  return diffA.union(diffB)
