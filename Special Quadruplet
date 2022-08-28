@@ -1,0 +1,42 @@
+class Solution:
+    def countQuadruplets(self, nums: List[int]) -> int:
+        nums = sorted(nums)
+        N = len(nums)
+        
+        print(N)
+        
+        B=[]
+        C=[]
+     
+        for i in range(N + 1):   
+  
+         for j in range(i + 1, N + 1):         
+         # slice the subarray  
+           sub = nums[i:j]
+           if(len(sub)==3):
+            B.append(sub) 
+       
+        print(B)
+        
+        sumlist = []
+      
+        for b in B:
+            sum =0
+            for i in range(len(b)):
+             sum+= b[i]
+            sumlist.append(sum)
+            
+        print(sumlist)
+        
+        res= []
+    
+        for i in nums:
+            for  j in sumlist:
+                if i==j:
+                    res.append(i)
+#                     idx = sumlist.index(j)       
+#         for i in B[idx]:
+#             res.append(i)
+#             res.append(sumlist[idx])
+            
+        return len(res)
