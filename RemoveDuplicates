@@ -1,0 +1,20 @@
+def removeDuplicates(s: str) -> str:
+            
+        for i in removeRecur(s):
+            s=s.replace(s[i],'')
+            removeDuplicates(s)
+            break 
+ 
+        return s 
+     
+def removeRecur(s:str):
+        to_remove = []
+        for i in range(len(s)):
+            for j in range(i+1,len(s)):
+                print(s[i],s[j],i,j)
+                if(s[i] == s[j]): 
+                    to_remove.append(i)
+                    to_remove.append(j)
+                break
+        
+        return (to_remove
