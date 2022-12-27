@@ -1,0 +1,38 @@
+def mostCommonWord( paragraph: str, banned: List[str]) -> str:
+        s= set()
+        d= {}
+    
+        lili = []
+
+        for l in  paragraph.lower().split(" "):
+            lili.append(l.strip(string.punctuation))
+
+        print(lili)
+
+        s = set(lili)
+        #print(s)
+
+        slist = list(s)
+
+        for ban in banned:
+            for s in slist:
+                if s==ban:
+                    slist.remove(s)
+
+        res = []
+        i=0
+
+        print(slist)
+        for s in slist:
+            for word in lili:
+                if s == word:
+                    res.append(s)
+
+
+        for s in res:
+             d[s] = res.count(s)
+
+
+        for i in d :
+            if d[i]==max(d.values()):
+                return i
