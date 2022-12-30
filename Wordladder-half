@@ -1,0 +1,75 @@
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        if endWord not in wordList:
+            return 0
+
+        else:
+            lili=[]
+            li= []
+
+            for word in wordList:
+                for i in range(len(word)):
+                    li.append(word.replace(word[i],'*'))
+            s= set(li)    
+            lili = list(s)
+
+
+            # print(lili)
+
+            first = []
+            second =[]
+            third = []
+
+            for l in lili:
+                    if '*' in l[0]:
+                        first.append(l)
+                    elif '*' in l[1]:
+                        second.append(l)
+
+                    else:
+                        third.append(l)
+
+
+
+            # print(first,second,third)
+
+            difirst= {}
+
+            disecond = {}
+
+            dithird = {}
+
+            lol1 = []
+            lol2=[]
+            lol3=[]
+            for word in wordList:          
+                for f in first:
+                    if (word.strip(word[0]) == f.strip(f[0])):
+                        lol1.append([f,word])
+            print(lol1)
+                        # difirst.update({f:word})
+                        
+
+            for s in second:
+                for word in wordList:
+                    if (word.replace(word[1],"") == s.replace(s[1],"")):
+                        lol2.append((s,word))
+                        # disecond[s] = word
+            print(lol2)
+
+            for t in third:
+                for word in wordList:
+                    if (word.strip(word[2]) == t.strip(t[2])):
+                         lol3.append((t,word))
+                        #  dithird[t] = word
+            print(lol3)
+
+        
+            
+            # print(difirst)
+            # print(disecond)
+            # print(dithird)
+
+            
+                
+            
