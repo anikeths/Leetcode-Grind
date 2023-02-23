@@ -1,0 +1,35 @@
+class Solution:
+    import operator
+    def sortByBits(self, arr: List[int]) -> List[int]:
+        li = []
+
+        for i in arr:
+            li.append(bin(i))
+
+        print(li)
+ 
+        di = {}
+        countli = [[]]
+        for l in li:
+                print(li.index(l),l.count('1'))
+                # countli.append(l.count('1'))
+                countli.append([li.index(l),l.count('1')])
+
+        di[i] = l.count('1')
+        # print(sorted(countli))
+
+        cc = countli[1:]
+
+        # print(cc.sort(key=lambda x: x[1]))
+
+        print(countli[1:])
+        #print(di)
+
+    
+        sorted_list = sorted(cc, key=operator.itemgetter(1))
+
+        res= []
+        for i in sorted_list:
+            res.append(i[0])
+        
+        return res
