@@ -1,0 +1,29 @@
+class Solution:
+    import operator
+    l = [...]
+    
+
+    def sortSentence(self, s: str) -> str:
+        actualindex =[]
+        li = []
+        for letter in s.split(" "):
+            actualindex.append([letter[-1],letter])
+
+            li.append(letter[-1])
+
+            sorted_list = sorted(actualindex, key=operator.itemgetter(0))
+
+    
+            
+            #  res = letter[-1]
+
+        print(actualindex)
+        print(sorted_list)
+        final = []
+        for elem in sorted_list:
+            print(elem[1][0:-1])
+            final.append(" "+elem[1][0:-1])
+            
+
+        final = "".join(final)
+        return (final[1:])
