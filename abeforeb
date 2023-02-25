@@ -1,0 +1,13 @@
+def tf(s):
+  aindex= []
+  bindex= []
+  for le in range(len(s)):
+    if s[le] == 'a': aindex.append(le)
+    else: bindex.append(le)
+
+  if(max(aindex)<min(bindex)):
+    print('Trye')
+    # return True
+
+  else:
+    print('False')
