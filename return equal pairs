@@ -1,0 +1,38 @@
+ s = {}
+        rows= []
+        cols = []
+
+        # for rowidx  in range(len(grid[0])):    
+        #     for colidx in range((len(grid))):
+        #         rows.append(grid[rowidx][colidx])
+        
+        
+        for row in grid:
+            letter = '#'.join(str(e) for e in row)
+            letter = letter + '#'
+            if letter not in s.keys():
+                s[letter] = 1
+            else:
+                s[letter] = s[letter]+1
+
+               
+            
+        
+        count=0
+        print(s)
+        # print(rows)
+                # print(grid[rowidx][colidx])
+        for colidx in range(len(grid)):
+          em = ""
+          for rowidx in range(len(grid[0])):
+                em = em + str(grid[rowidx][colidx])
+                em = em + '#'      
+
+          print(em)      
+          if em in s:
+              count+=s[em]
+                # cols.append(grid[colidx][rowidx])
+        
+                # print(grid[colidx][rowidx])
+
+        return count
