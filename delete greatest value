@@ -1,0 +1,15 @@
+  li = []
+            rowindex= 0
+            currmax= 0
+            ans = 0
+            for row in grid:
+               grid[rowindex] =  sorted(row)
+               rowindex+=1
+            for cols in range(len(grid[0])):
+                for rows in range(len(grid)):
+                    # print(grid[rows][cols],end="")
+                    if grid[rows][cols] > currmax:
+                        currmax = grid[rows][cols]
+                ans=ans+currmax
+                   
+            return ans
