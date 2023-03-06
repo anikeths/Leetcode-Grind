@@ -1,0 +1,39 @@
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+            smallest = min(nums)
+
+            res= [(smallest,0)]
+            sortednums = sorted(nums)
+
+            # print(sortednums)
+            li= []
+
+            di = {}
+            
+
+            for i in range(len(sortednums)):
+                    
+
+                    if(sortednums[i]>sortednums[i-1]):
+                        
+                        res.append((sortednums[i],i))
+
+                    elif(sortednums[i]==sortednums[i-1]):
+                   
+                        res.append((sortednums[i],res[i-1][1]))
+                    
+               
+
+            d= dict(res)
+            print(dict(res))
+
+            print(res)
+
+            print(nums)
+
+
+            final = []
+            for num in nums:
+                final.append(d[num])
+
+            return (final)
