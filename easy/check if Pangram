@@ -1,0 +1,13 @@
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+       li = [chr(i) for i in range(ord('a'),ord('z')+1)]
+
+       s1 = set(sentence)
+
+       s2 = set(li)
+
+       if(s1 == s2): 
+           return True
+
+       else:
+            return False
