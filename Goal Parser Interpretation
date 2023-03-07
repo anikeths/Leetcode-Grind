@@ -1,0 +1,22 @@
+class Solution:
+    def interpret(self, command: str) -> str:
+        d= {}
+        res= []
+        for c in range(len(command)):
+            if (command[c] == 'G'):
+                d[c] = 'G'
+                res.append('G')
+            elif (command[c] == '(' and command[c+1]== ')'):
+                d[c]= 'o'
+                res.append('o')
+                c=c+1
+            elif (command[c] == '(' and command[c+1] == 'a'):
+                res.append('al')
+                d[c] = 'al'
+                c=c+3
+        
+        print(res)
+
+        res = "".join([str(item) for item in res])
+          
+        return (res)
