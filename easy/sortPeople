@@ -1,0 +1,25 @@
+class Solution:
+    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        d={}
+            
+        # for item in zip(names, heights):
+        #    d[item[0]] = item[1]
+
+        # print(d)
+                
+        # d= {k: v for k, v in sorted(d.items(), key=lambda item: item[1],reverse= True)}
+        # print(d)
+        # return (d.keys())
+
+        for item in zip(heights,names):
+            d[item[0]] = names.index(item[1])
+        
+        print(d)
+        heights = sorted(heights,reverse= True)
+        res= []
+
+        for h in heights:     
+            res.append(names[d[h]])
+
+        return (res)
+        
