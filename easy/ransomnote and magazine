@@ -1,0 +1,35 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        rd = {}
+
+        md = {}
+
+
+        for r in ransomNote:
+          if r not in rd.keys():
+            rd[r] = 1
+
+          else:
+            rd[r] = rd[r]+1  
+
+        for m in magazine:
+          if m not in md.keys():
+            md[m] = 1
+
+          else:
+            md[m] = md[m]+1 
+
+        print(rd)
+        print(md)
+
+
+        for r in rd.keys():
+            if(r not in md.keys()):
+                return False
+
+            elif (rd[r] > md[r]):
+                 
+                return False
+        
+
+        return True 
