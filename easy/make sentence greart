@@ -1,0 +1,39 @@
+class Solution:
+    def makeGood(self, s: str) -> str:
+        al =  list(map(chr, range(97, 123)))
+
+        ref = []
+        for  a in al:
+            ref.append(a+a.upper())
+            ref.append(a.upper()+a)
+        
+        print(ref)
+
+        while len(s)>1:
+          find = False
+      
+          for i in range(len(s)-2):
+            if ((s[i] + s[i+1]) in ref):
+                    s=s.replace(s[i]+s[i+1],"")
+                    print(s)
+                    find=True
+                    break
+               
+
+          if not find:
+             break
+
+        # done = False
+        # while not (done):
+        #     isPresent = False
+        #     for r in ref:
+        #         if r in s:
+        #             print(s)
+        #             isPresent = True
+        #             s=s.replace(r,"")
+
+            
+        #     if not isPresent:
+        #         done = True
+
+      return (s)
