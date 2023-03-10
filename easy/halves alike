@@ -1,0 +1,27 @@
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+
+            voli = ['a','e','i','o','u','A','E','I','O','U']
+            firstcount=0
+            secondcount = 0
+
+            mid = int(len(s)/2)
+            print(mid)
+            first = s[0: mid]
+            second = s[mid:]
+
+        
+
+            for f in first:
+                if f in voli:
+                    firstcount+=1
+                    
+            for s in second:
+                if s in voli:
+                    secondcount +=1
+
+            if (firstcount == secondcount):
+                return True
+
+            else:
+                return False
