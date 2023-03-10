@@ -1,0 +1,17 @@
+class Solution:
+    def reversePrefix(self, word: str, ch: str) -> str:
+        idx = 0
+        first =""
+        for w in word:
+            if w==ch:
+                idx = word.index(ch)
+     
+        w=word[0:idx+1]
+
+        for i in reversed(range(len(w))):
+            first= first+ w[i]
+
+        for i in range(idx+1,len(word)):
+            first +=word[i]
+
+        return first
