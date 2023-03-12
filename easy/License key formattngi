@@ -1,0 +1,95 @@
+class Solution:
+    def licenseKeyFormatting(self, s: str, k: int) -> str:
+        dashidx = []
+        b4grp1 = ""
+        newstring = ""
+        needed = ""
+        notneeded = ""
+
+        for i in range(len(s)):
+            if s[i] == '-':
+                dashidx.append(i)
+        
+
+        for i in range(len(s)):
+            if(s[i]!= '-'):
+                newstring = newstring + s[i]
+
+        rem = len(newstring)%k
+
+        for i in range(rem):
+            notneeded = notneeded + newstring[i]
+
+        for i in range(rem,len(newstring)):
+            needed = needed+ newstring[i]
+
+ 
+        print(notneeded+'\n')
+
+        print(newstring)
+
+        chunks = [needed[i:i+k] for i in range(0,len(needed),k)]
+
+        print(chunks)
+
+        needed1 = "-".join(c for c in chunks)
+        print(needed1)
+        # if rem == 0:
+        #     chunks = [newstring[i:i+k] for i in range(0,len(newstring))]
+        #     newstring1 = "-".join(c for c in chunks)
+
+        # else:
+        #     chunks = [newstring[i:i+k] for i in range(rem,len(newstring),k)]
+        #     newstring1 = "-".join(c for c in chunks)
+        
+
+    
+        # for i in range(0,dashidx[0]):
+        #     b4grp1 = b4grp1 + s[i]
+
+        # for i in range(dashidx[0],len(s)):
+        #     if(s[i]!= '-'):
+        #         newstring = newstring + s[i]
+
+        # if len(newstring)%k== 0:
+        #     chunks = [newstring[i:i+k] for i in range(0,len(newstring),k)]
+
+        #     newstring1 = "-".join(c for c in chunks)
+
+        # else:
+        #     rem = len(newstring)%k
+        #     chunks = [newstring[i:i+k] for i in range(0,len(newstring),k)]
+            
+        #     for i in range(len(b4grp1)):
+        #         newstring1 = b4grp1[rem:]+ "-".join(c for c in chunks)
+        #         brgrp1 = brgrp1[0:rem]
+ 
+        # print(chunks)
+        # print(newstring1)
+        # # print(dashidx)
+
+        # # print(b4grp1)
+        # print(newstring)
+
+        # return (b4grp1+ '-' + newstring1).upper()
+
+       
+        # if notneeded == '':
+        #     return  ( needed1).upper()
+
+        # else:
+        #     return  (notneeded + '-' + needed1).upper()
+
+
+        if (needed1 != '') and (notneeded != ''):
+            return  (notneeded + '-' + needed1).upper()
+
+
+        elif (notneeded == ''):
+            return  ( needed1).upper()
+
+        elif (needed1 == ''):
+            return notneeded.upper()
+
+        else:
+            return ""
