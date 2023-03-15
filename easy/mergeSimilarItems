@@ -1,0 +1,47 @@
+class Solution:
+    def mergeSimilarItems(self, items1: List[List[int]], items2: List[List[int]]) -> List[List[int]]:
+        res = []
+       
+        for i in items1:
+            for j in items2:
+              if(i[0] == j[0]):
+                  res.append([i[0],i[1] + j[1]])
+
+            #   else:
+            #       print(i,j)
+        print(res)
+
+        res0 = []
+
+        for r in res:
+            res0.append(r[0])
+
+        for i in items1:
+            if i[0] not in res0:
+              res.append(i)
+        
+        for j in items2:
+            if j[0] not in res0:
+              res.append(j)
+
+
+        return sorted(res)
+        
+
+
+        
+
+
+    
+        
+
+
+
+
+
+
+
+
+
+
+
