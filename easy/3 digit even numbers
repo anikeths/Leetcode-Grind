@@ -1,0 +1,18 @@
+class Solution:
+    def findEvenNumbers(self, digits: List[int]) -> List[int]:
+        import itertools
+
+        from itertools import permutations
+        li = list(permutations(digits))
+
+        # print(li)
+        newli =[]
+        new=""
+
+        for l in li:
+            new = str(l[0])+str(l[1]) + str(l[2])
+            if(int(new)%2 == 0 and new[0]!='0'):
+                newli.append(int(new))
+            # print(new)   
+
+        return (sorted(list(set(newli))))
