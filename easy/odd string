@@ -1,0 +1,63 @@
+class Solution:
+    def oddString(self, words: List[str]) -> str:
+
+        #generate alphabet list
+        alphabet = [chr(i) for i in range(ord('a'),ord('z')+1)]
+        d= {}
+        d2 = {}
+        for items in enumerate(alphabet):
+            d[items[1]] = items[0]
+
+            # print(items)
+
+        # print(d)
+        li=[]
+        for w in words:
+        #    print(d[w[1]]-d[w[0]], d[w[2]]-d[w[1]])
+
+           li.append((d[w[1]]-d[w[0]], d[w[2]]-d[w[1]]))
+        print(li)
+
+        for l in li:
+            if l not in d2.keys():
+                d2[l] = 1
+
+            else:
+                d2[l] = d2[l] +1 
+        print(d2)
+        for k,v in d2.items():
+              if v==1 :
+                print(k)
+                print(li.index(k))
+                res= li.index(k)
+        
+        return words[res]
+
+
+                
+
+            
+           
+
+
+
+
+
+
+
+
+
+
+        
+
+
+       
+
+
+
+
+          
+
+
+
+
