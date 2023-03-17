@@ -1,0 +1,35 @@
+class Solution:
+    def rearrangeCharacters(self, s: str, target: str) -> int:
+        sd={}
+        targetd={}
+        res= set()
+        impossible = False
+        for letter in s:
+            if letter not in sd.keys():
+                sd[letter] = 1
+            else:
+                sd[letter]= sd[letter]+1
+  
+        for t in target:
+            if t not in s:
+                impossible = True
+            else:
+                if t not in targetd.keys():
+                 targetd[t]=1
+                else:
+                    targetd[t]= targetd[t]+1
+
+        
+                if sd[t] >= targetd[t]:
+                    res.add(sd[t])
+        
+        print(res)
+        print(sd)
+        print(targetd)
+
+        if (impossible):
+            return 0
+        elif len(res)==1 :
+            return 1
+        else:
+            return min(res)
