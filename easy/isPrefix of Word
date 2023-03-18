@@ -1,0 +1,16 @@
+class Solution:
+    import re
+    def isPrefixOfWord(self, sentence: str, searchWord: str) -> int:
+        newli =[s for s in sentence.split(' ')]
+        print(newli)
+
+        for e in enumerate(newli):
+            print(e)
+            if searchWord in e[1]:
+                y = "^" + searchWord
+                # return e[0] +1
+                if(re.search(y,e[1])):
+                    print(e[0])
+                    return e[0] +1
+                
+        return -1
