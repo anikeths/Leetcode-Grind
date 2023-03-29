@@ -1,0 +1,23 @@
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        res=[]
+        imd=[]
+        # words = sorted(words)
+        for i in range(len(words)):
+            # nextlist = [word for word in words[i+1:]]
+       
+            # lookuplist = [word for word in tmplist.pop(i)]
+            lookuplist = words[0:i]+ words[i+1:]
+            print(words[i],lookuplist)
+
+            imd.append((words[i],lookuplist))
+
+ 
+        print(imd)
+            
+        for i in imd:
+            for l in range(len(i[1])):
+             if i[0] in i[1][l]:
+                 res.append(i[0])    
+        
+        return list(set(res))
