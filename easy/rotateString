@@ -1,0 +1,27 @@
+class Solution:
+    
+
+    def rotateString(self, s: str, goal: str) -> bool:
+
+        def transform(st:str) -> str:
+            temp = st[1:] + st[0]
+            return temp 
+            
+        res = transform(s)
+        if(res == goal):
+            return True
+        
+        count = 0
+        while count!= len(s)-1:
+              res = transform(res)
+              count+=1
+              print(res)
+              
+              if(res == goal):
+                  print(res,'yes')
+                  return True
+                  break
+        
+        return False
+        
+               
