@@ -1,0 +1,23 @@
+class Solution:
+    def maximum69Number (self, num: int) -> int:
+        res= []
+        d= {'9':'6','6':'9'}
+
+        num = str(num)
+     
+        for i in range(len(num)):
+            temp=num
+            if temp[i]=='9':
+                res.append(int(temp[:i]+ '6' +temp[i+1:]))
+            else:
+                res.append(int(temp[:i] + '9' + temp[i+1:]))
+
+        print(res)
+       
+        maxi = max(res)
+
+        if int(num)>maxi:
+            maxi = int(num)
+
+    
+        return maxi
