@@ -1,0 +1,46 @@
+class Solution:
+    def isSumEqual(self, firstWord: str, secondWord: str, targetWord: str) -> bool:
+        import string
+        alphabet = list(string.ascii_lowercase)
+
+        d={}
+        for k,v in enumerate(alphabet):
+            d[v] = k
+            # print(k,v)
+        
+        first = ""
+        second =""
+        final = ""
+
+        print(d)
+        for letter in firstWord:
+            first += str(d[letter])
+        
+        if(first[0]==0):
+            first = first[1:]
+        print(first)
+
+        for letter in secondWord:
+            second += str(d[letter])
+        
+        if(second[0]==0):
+            second = second[1:]
+          
+        # print(first)
+        print(second)
+
+        for letter in targetWord:
+            final += str(d[letter])
+
+        if(final[0]==0):
+            final= final[1:]
+
+        print(final)
+
+        if(int(first)+int(second)== int(final)):
+            # print('yes')
+            return True
+
+        else:
+            return False
+
