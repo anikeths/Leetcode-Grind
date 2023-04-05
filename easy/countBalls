@@ -1,0 +1,38 @@
+class Solution:
+    def countBalls(self, lowLimit: int, highLimit: int) -> int:
+        d = {}
+    
+        for i in range(lowLimit, highLimit+1):
+            count = 0
+            temp = i
+            sumd = 0
+            while temp > 0:
+                temp = temp//10
+                count = count + 1
+            # print(count)   
+
+            for n in range(count):
+                sumd = sumd + int(str(i)[n])
+            
+            print(sumd)
+
+            if sumd not in d.keys():
+                d[sumd] = 1
+            else:
+                d[sumd] = d[sumd]+1
+
+        print(d)
+
+        maxi = 0 
+        for k,v in d.items(): 
+            if v>maxi:
+                maxi=v
+
+        return maxi
+
+
+
+
+       
+
+   
