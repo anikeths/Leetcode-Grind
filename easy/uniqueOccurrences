@@ -1,0 +1,25 @@
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        d= {}
+        d2 = {}
+        for n in arr:
+            if n not in d.keys():
+                d[n] = 1
+            else:
+                d[n]= d[n] +1
+
+        for k,v in enumerate(d.values()):
+            if v not in d2.keys():
+                d2[v] = 'ok'
+
+            else:
+                return False
+
+        return True
+
+
+
+
+
+
+
