@@ -1,0 +1,21 @@
+class Solution:
+    def sumOfUnique(self, nums: List[int]) -> int:
+        d = {}
+        for n in nums:
+            if n not in d.keys():
+                d[n] = 1
+            
+            else:
+                d[n] = d[n] + 1
+        print(d)
+
+        sum1=0
+
+        for k,v in d.items():
+            if v==1:
+                sum1 = sum1 + k
+                # print(k)
+
+        return sum1
+
+     
