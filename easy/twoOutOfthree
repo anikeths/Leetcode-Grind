@@ -1,0 +1,82 @@
+class Solution:
+    def twoOutOfThree(self, nums1: List[int], nums2: List[int], nums3: List[int]) -> List[int]:
+        d1= {}
+        d2 = {}
+        d3 ={}
+        s1= set()
+        s2= set()
+        s3 = set()
+
+        for n1 in nums1:
+            if n1 not in d1.keys():
+                d1[n1] = 1
+            else:
+                d1[n1] = d1[n1] + 1
+
+        print(d1)
+
+
+        for n2 in nums2:
+            if n2 not in d2.keys():
+                d2[n2] =1
+
+            else:
+                d2[n2] = d2[n2] + 1
+
+        print(d2)
+
+        for n3 in nums3:
+            if n3 not in d3.keys():
+                d3[n3] =  1
+            else:
+                d3[n3] = d3[n3] + 1
+
+        print(d3)
+
+        for k in d1.keys():
+            s1.add(k)
+
+        for k in d2.keys():
+            s2.add(k)
+
+        for k in d3.keys():
+           s3.add(k)
+
+        print(s1,s2,s3)
+
+
+        res = []
+        for i in list(s1):
+            if i in list(s2) or i in list(s3):
+                res.append(i)
+
+        for i in list(s2):
+            if i in list(s3):
+                res.append(i)
+        return list(set(res))
+            
+        
+
+            
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+        
