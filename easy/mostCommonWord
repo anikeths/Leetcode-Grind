@@ -1,0 +1,25 @@
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        lili = []
+        d= {}
+
+        for l in  paragraph.lower().split(" "):
+            lili.append(l.strip(string.punctuation))
+
+        print(lili)
+
+        for li in lili:
+            if li not in banned and li not in d.keys():
+                d[li] = 1
+            elif li not in banned and li in d.keys():
+                d[li] = d[li]+1
+
+
+        print(d)
+
+        maxi = 0
+        for k,v in d.items():
+            if v>maxi:
+                res,maxi =k, v
+                
+        return res
