@@ -1,0 +1,45 @@
+class Solution:
+    def bestHand(self, ranks: List[int], suits: List[str]) -> str:
+        rankd = {}
+        suitd = {}
+
+        for s in suits:
+            if s not in suitd.keys():
+                suitd[s] = 1
+            else:
+                suitd[s] = suitd[s] + 1
+
+        for k,v in suitd.items():
+            if v==5:
+                return 'Flush'
+            
+            
+        for r in ranks:
+            if r not in rankd.keys():
+                rankd[r] = 1
+            
+            else:
+                rankd[r] = rankd[r] + 1
+
+        
+        print(rankd)
+
+        three = False
+        two = False
+
+        for k,v in rankd.items():
+            if v>= 3:
+                three = True
+            
+            elif v==2:
+                two = True
+
+                
+        if three:
+            return 'Three of a Kind'
+
+        if two:
+            return 'Pair'
+
+        return 'High Card'
+         
