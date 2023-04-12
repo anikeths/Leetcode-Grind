@@ -1,0 +1,25 @@
+class Solution:
+    def checkDistances(self, s: str, distance: List[int]) -> bool:
+        alphad = {}
+        import string
+        alphabet = list(string.ascii_lowercase)
+        d = {}
+        for i in range(len(s)):
+            if  s[i] not in d.keys():
+               d[s[i]] = str(i)
+        
+            else:
+               d[s[i]] = d[s[i]] + " " + str(i)
+
+        print(d)
+        for k,v in d.items():
+            v = abs(int(v.split(" ")[0]) - int(v.split(" ")[1]))-1
+            
+            d[k] = v
+        print(d)
+
+        for k,v in enumerate(alphabet):
+            if v not in alphad.keys():
+                alphad[v] =  1
+            else:
+                alphad[v] = alphad[v] + 1
