@@ -1,0 +1,38 @@
+class Solution:
+    def countPoints(self, rings: str) -> int:
+        d = {}
+        d2= {}
+        res = []
+        for r in range(0,len(rings),2):
+            if rings[r] not in d.keys():
+                d[rings[r]] = (rings[r+1]) 
+            else:
+                d[rings[r]] = d[rings[r]] + rings[r+1]
+
+        for v in d.values():
+            d3={}
+            for l in v:
+                if l not in d3.keys():
+                    d3[l] = 1
+                else:
+                    d3[l] = d3[l] + 1
+
+            res.append(d3)
+        # print(d)
+        # print(d3)
+        print(res)
+        finald= {}
+        for item in res:
+            for k in item.keys():
+                if k not in finald.keys():
+                    finald[k] = 1
+                else:
+                    finald[k] = finald[k]+1
+    
+        print(finald)
+        c=0
+        for k,v in finald.items():
+            if v==3:
+                c=c+1
+
+        return c
