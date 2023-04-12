@@ -1,0 +1,21 @@
+class Solution:
+    def shortestToChar(self, s: str, c: str) -> List[int]:
+        li = []
+        res =[]
+        d= {}
+        for i in range(len(s)):
+            if s[i] == c:
+                li.append(i)
+
+        for i in range(len(s)):
+            for l in li:
+                if i not in d.keys():
+                    d[i] = str(abs(l-i))
+
+                else:
+                    d[i] = d[i] + " " + str(abs(l-i))
+               
+        for v in d.values(): 
+            res.append(min([eval(i) for i in v.split(" ")]))
+
+        return res
