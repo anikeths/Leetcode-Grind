@@ -1,0 +1,30 @@
+class Solution:
+    def countPairs(self, nums: List[int], k: int) -> int:
+        c=0
+        for n in range(len(nums)):
+            for j in range(n+1,len(nums)):
+                if nums[n] == nums[j] and ((n)*(j))%k==0:
+                    print(nums[n],nums[j], (n,j))
+                    
+                    c=c+1
+
+        return c
+
+
+        
+
+        
+
+
+        
+                    
+
+        
+        
+
+
+
+
+
+        
+
