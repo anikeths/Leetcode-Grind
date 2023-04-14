@@ -1,0 +1,71 @@
+class Solution:
+    def reverseOnlyLetters(self, s: str) -> str:
+        d = {}
+        torev=[]
+        dontrev=[]
+        imd=""
+
+
+       
+        for k,v in enumerate(s):
+                d[k] = v
+   
+        for i in range(len(s)):
+            if 65<= ord(s[i]) <=90 or 97<= ord(s[i]) <= 122: 
+                torev.append(i)
+            else:
+                dontrev.append(i)
+     
+        for i in range(len(torev)):
+            for j in reversed(range(len(torev))):
+                # print(s[torev[j]])
+                imd = imd + s[torev[j]]
+
+        res = imd[0:len(torev)]
+
+        print(res)
+        d2={}
+
+        for k,v in zip(torev,res):
+            d2[k] = v
+    
+        for k,v in d.items():
+            if k in d2.keys():
+                d[k] = d2[k]
+
+        final =""
+        for v in d.values():
+            final = final + "".join(v)
+
+        print(d2)
+        print(d)
+
+        return final
+
+
+        
+
+        
+        
+
+
+
+        
+
+       
+
+
+       
+
+
+
+
+
+
+        
+
+
+        
+
+
+        
