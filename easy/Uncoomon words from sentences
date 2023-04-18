@@ -1,0 +1,37 @@
+class Solution:
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        res= []
+
+        d1= {}
+        d2= {}
+        for word in s1.split(" "):
+            if word not in d1.keys():
+                d1[word] = 1
+
+            else:
+                d1[word] = d1[word] +1
+
+            print(d1)
+
+        for word in s1.split(" "):
+            if d1[word]== 1 and word not in s2.split(" "):
+                res.append(word)
+
+            
+
+        for word in s2.split(" "):
+            if word not in d2.keys():
+                d2[word] = 1
+
+            else:
+                d2[word] = d2[word] +1 
+
+            print(d2)
+
+        for word in s2.split(" "):         
+            if d2[word] == 1 and word not in s1.split(" "):
+                res.append(word)
+
+        print(res)
+
+        return res
