@@ -1,0 +1,44 @@
+class Solution:
+    def decodeMessage(self, key: str, message: str) -> str:
+
+        import string
+        alphabet = list(string.ascii_lowercase)
+        # print(alphabet)
+
+        res=""
+        d={}
+        li=[]
+        lii=[]
+        for let in key:
+            if let!= " ":
+                li.append(let)
+        # print(li)
+
+        for let in li:
+            if let not in d.keys():
+                d[let] = 1
+            else:
+                d[let] = d[let] +1
+
+        # print(d)
+        d2={} 
+        for k in d.keys():
+            lii.append(k)
+        
+        for k, al in zip(lii,alphabet):
+            d2[k] = al
+
+        # print(d2)
+
+        for m in message:
+            if m== " ":
+               
+                res = res +" "
+            else:
+                # print(m,d2[m])
+                res = res+ d2[m]
+               
+        return (res)
+            
+
+            
