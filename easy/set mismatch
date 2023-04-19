@@ -1,0 +1,22 @@
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        d={}
+        missing = 0
+        for n in nums:
+            if n not in d.keys():
+                d[n] = 1
+            else:
+                d[n] = d[n]+1
+
+        print(d)
+
+        for i in range(1,len(nums)+1):
+            print(i)
+            if i not in nums:
+                missing= i
+
+        for k,v in d.items():
+            if v==2:
+                rep=k
+
+        return [rep,missing]
