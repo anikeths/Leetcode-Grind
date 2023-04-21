@@ -1,0 +1,40 @@
+import functools
+class Solution:
+    def frequencySort(self, nums: List[int]) -> List[int]:
+
+        d= {}
+        final = []
+        res = ""
+
+        for n in nums:
+           if n not in d.keys():
+               d[n] = 1
+
+           else:
+                d[n] = d[n]+1
+
+        def compare(item1, item2):
+            if item1[1] < item2[1]:
+                return -1
+            elif item1[1] > item2[1]:
+                return 1
+
+            elif item1[0] < item2[0]:
+                return 1
+            else:
+                return -1
+       
+        d= {k:v for k,v in sorted(d.items(), key=functools.cmp_to_key(compare))}
+ 
+
+        for k,v in d.items():
+            for j in range(v):
+                final.append(k)
+            
+    
+
+        return final
+
+      
+       
+  
