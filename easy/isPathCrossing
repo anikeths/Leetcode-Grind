@@ -1,0 +1,46 @@
+class Solution:
+    def isPathCrossing(self, path: str) -> bool:
+        dx= { 'N': 1, 'S':-1}
+        dy = { 'E':1,'W':-1}
+        se= set()
+        inix,iniy = (0,0)
+
+        se.add((inix,iniy))
+
+        for let in path:
+            if let  in dx.keys():
+                inix += dx[let]
+
+            elif let in dy.keys():
+                iniy += dy[let]
+
+
+            if (inix,iniy) not in se:
+                se.add((inix,iniy))
+
+            else:
+                return True
+
+        return False
+
+        
+
+            
+        
+
+
+           
+            
+
+      
+
+
+
+
+
+
+
+
+
+
+        
