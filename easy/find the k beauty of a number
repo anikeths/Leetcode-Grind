@@ -1,0 +1,16 @@
+class Solution:
+    def divisorSubstrings(self, num: int, k: int) -> int:
+        res = 0
+    
+        li=[]
+
+        for i in range(len(str(num))):
+            for j in range(i, len(str(num))+1):
+                li.append(str(num)[i:j])
+                print(str(num)[i:j])
+
+        for l in li:
+                if len(l)==k and int(l)>0 and num%int(l) ==0 :
+                    res = res+1
+
+        return res
