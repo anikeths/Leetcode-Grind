@@ -1,0 +1,37 @@
+class Solution:
+    def countGoodSubstrings(self, s: str) -> int:
+        li = []
+        c=0
+        
+        for i in range(len(s)):
+            for j in range(i,len(s)):
+                if len(s[i:j]) == 3:
+                    li.append(s[i:j])
+                 
+        li.append(s[-3:])
+
+        print(li)
+
+        for l in li:
+            d={}
+            se = set()
+            for le in l:
+                if le not in d.keys():
+                    d[le] = 1
+                else:
+                    d[le] = d[le] + 1
+
+            print(d)
+
+            for v in d.values():
+                se.add(v)
+
+            print(se)
+            if len(se) == 1 and list(se)[0] == 1  and len(s)!=1:
+                c+=1
+               
+
+        return c
+            
+
+
