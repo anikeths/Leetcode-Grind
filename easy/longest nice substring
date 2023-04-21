@@ -1,0 +1,44 @@
+class Solution:
+    def longestNiceSubstring(self, s: str) -> str:
+        se= set()
+        li = []
+        c=0
+        res=""
+        res2=""
+        for i in range(len(s)):
+            for j in range(i,len(s)+1):
+                li.append(s[i:j])
+        print(li)
+        lili=[]
+        maxi = -1
+        for l in li:
+            se=set()
+            for le in l:
+                se.add(le)
+
+            c=0
+            for letter in list(se):  
+                if (chr(ord(letter)+32) in list(se) or chr(ord(letter)-32) in list(se)) and len(se)!=2:
+                    # print(se,letter)
+                    c=c+1
+                    if c == len(list(se)) and len(l)>len(res2):
+                      res2 = l
+                    # print(se)
+                      print(se,c,len(list(se)))
+                    
+            if len(se)==2 and abs(ord(list(se)[0])- ord(list(se)[1])) == 32:
+                    print(se)
+                    print(l)
+                    if len(l) > maxi:
+                        maxi = len(l)
+                        res = l
+
+        if len(res2) > len(res):
+            res = res2       
+        return (res)
+
+
+        
+
+
+        
