@@ -1,0 +1,24 @@
+class Solution:
+    def numberOfPairs(self, nums: List[int]) -> List[int]:
+        d={}
+        c=0
+        for n in nums:
+            if n not in d.keys():
+                d[n] = 1
+            else:
+                d[n] = d[n] + 1
+
+        print(d)
+
+        for k,v in d.items():
+            c = c+ int(v/2)
+            
+        
+        return [c,len(nums)-2*c]
+    
+
+        
+
+
+
+
