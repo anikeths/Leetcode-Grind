@@ -1,0 +1,23 @@
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        
+        li = []
+        first = "qwertyuiopQWERTYUIOP"
+        firstset = set(first)
+        second="asdfghjklASDFGHJKL"
+        secondset= set(second)
+        third = "zxcvbnmZXCVBNM"
+        thirdset = set(third)
+
+
+        for word in words:
+            se=set()
+            for le in word:
+                se.add(le)
+            print(se)
+        
+     
+            if se.issubset(firstset) or se.issubset(secondset) or se.issubset(thirdset):
+                   li.append(word)
+
+        return li
