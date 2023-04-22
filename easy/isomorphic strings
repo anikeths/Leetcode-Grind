@@ -1,0 +1,47 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        df = {}
+        dr={}
+ 
+        for k,v in zip(s,t):
+            # if k not in d.keys(): 
+                df[k] = v
+            # else:
+            #     if v not in d.values():
+            #       d[k] = v
+           
+        print(df)
+
+        for k,v in zip(t,s):
+            dr[k] = v
+
+        for k,v in zip(s,t):
+            if v!= df[k]:
+                return False
+
+        print(dr)
+
+        for k,v in zip(t,s):
+
+            if v!=dr[k]:
+                return False
+
+        return True
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
