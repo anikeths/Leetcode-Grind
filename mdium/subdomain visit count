@@ -1,0 +1,48 @@
+class Solution:
+    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+
+        di = {}
+        for d in cpdomains:
+
+
+            count = d.split(" ")[0]
+            domain = d.split(" ")[1]
+
+            s=""
+            for i in reversed(range(len(domain.split(".")))):
+              
+              s=  domain.split(".")[i] + "." + s
+              
+              print(s)
+              if s[:len(s)-1] not in di.keys():
+                di[s[:len(s)-1]] = int(count)
+
+              else:
+                    di[s[:len(s)-1]] = di[s[:len(s)-1]] + int(count)
+
+        print(di)
+
+        li = []
+        for k,v in di.items():
+            li.append(str(v) + " " +  k )
+
+        return li
+
+        
+        
+        
+
+
+
+
+
+                
+        
+
+
+
+
+
+
+        
+
