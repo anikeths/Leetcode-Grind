@@ -1,0 +1,53 @@
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        winner = {}
+        lo = {}
+        players = {}
+        one = []
+        zero =[]
+        for m in matches:
+            if m[0] not in winner.keys():
+                winner[m[0]] = 1
+            
+            else:
+                winner[m[0]] = winner[m[0]] + 1
+
+            
+            if m[1] not in lo.keys():
+                lo[m[1]] = 1
+            else:
+                lo[m[1]] = lo[m[1]] + 1 
+
+            
+            if m[0] not in players.keys():
+                players[m[0]] = 1
+            
+
+            if m[1] not in players.keys():
+                players[m[1]] = 1
+            
+      
+        for p in players.keys():
+            if p not in lo.keys():
+                zero.append(p)
+
+            elif lo[p] == 1:
+                one.append(p) 
+
+            
+        print(winner)
+        print(lo)
+
+        print(players)
+
+
+        return [sorted(zero),sorted(one)]
+
+
+
+    
+
+
+
+
+     
