@@ -1,0 +1,8 @@
+# Write your MySQL query statement below
+
+select t1.class from 
+(select class,count(class) as count1 from Courses
+group by class) as t1
+where count1 >= 5
+
+
