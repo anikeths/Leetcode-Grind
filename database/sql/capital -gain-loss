@@ -1,0 +1,8 @@
+# Write your MySQL query statement below
+
+
+select t.stock_name, sum(t.capital_gain_loss) as capital_gain_loss
+from
+(select stock_name, IF(operation ='Buy',-price , price) as capital_gain_loss
+from Stocks) as t 
+group by stock_name
