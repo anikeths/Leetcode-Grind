@@ -1,0 +1,14 @@
+# Write your MySQL query statement below
+
+
+
+select  product_name, unit 
+from Products  join 
+(
+select product_id, sum(unit) as unit from Orders
+where MONTH(order_date)=2 AND YEAR(order_date)=2020
+group by product_id 
+having sum(unit)>=100
+) as t
+
+on Products.product_id = t.product_id
